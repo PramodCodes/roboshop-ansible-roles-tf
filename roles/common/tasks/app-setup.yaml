@@ -1,0 +1,28 @@
+
+
+- name: add roboshop user
+  ansible.builtin.user:
+    name: roboshop
+
+- name: remove directory if exists to avoid issues
+  ansible.builtin.file:
+    path: /app
+    state: absent
+
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: /app
+    state: directory # if you dont specify as directory it will be treated as file
+#      mode: '0755'
+    #why ansible.builtin.file:  has mode: of 4 characters not 3 ?
+
+- name: "Download {{component}} application"
+  ansible.builtin.get_url:
+    url: "https://roboshop-builds.s3.amazonaws.com/{{component}}.zip"
+    dest: /tmp
+
+- name: Extract archive
+  ansible.builtin.unarchive:
+    src: /tmp/{{component}}.zip
+    dest: /app
+    remote_src: yes

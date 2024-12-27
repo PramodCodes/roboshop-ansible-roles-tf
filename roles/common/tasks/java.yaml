@@ -1,0 +1,16 @@
+
+  - name: install maven
+    ansible.builtin.dnf:
+      name: maven
+      state: present
+
+  - name: install maven dependencies
+    ansible.builtin.command: mvn clean package
+    args:
+      chdir: /app
+
+  - name: change the direcoty of jar
+    ansible.builtin.command: mv target/{{component}}-{{shipping_version}}.jar {{component}}.jar
+    # the versions change with relases so you need to parameterize it
+    args:
+      chdir: /app

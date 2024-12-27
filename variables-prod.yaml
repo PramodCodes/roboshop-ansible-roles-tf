@@ -1,0 +1,10 @@
+MONGODB_HOST: mongodb-prod.pka.in.net
+REDIS_HOST: redis-prod.pka.in.net
+CATALOGUE_HOST: catalogue-prod.pka.in.net
+USER_HOST: user-prod.pka.in.net
+CART_HOST: cart-prod.pka.in.net
+SHIPPING_HOST: shipping-prod.pka.in.net
+PAYMENT_HOST: payment-prod.pka.in.net
+DISPATCH_HOST: dispatch-prod.pka.in.net
+RABBITMQ_HOST: rabbitmq-prod.pka.in.net
+MYSQL_HOST: mysql-prod.pka.in.net

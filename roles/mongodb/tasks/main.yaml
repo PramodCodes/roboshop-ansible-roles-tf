@@ -1,0 +1,29 @@
+- name: copy mongodb repo
+  ansible.builtin.copy:
+    src: mongodb.repo
+    dest: /etc/yum.repos.d/mongo.repo
+
+- name: install mongodb
+  ansible.builtin.package:
+    name: mongodb-org
+    state: present
+
+- name: install mongodb
+  ansible.builtin.service:
+    name: mongod
+    state: started #starting a service
+    enabled: yes # enabling a service
+
+# Update listen address from 127.0.0.1 to 0.0.0.0 in /etc/mongod.conf
+- name: point mongodb to internet by allowing remote connections
+  ansible.builtin.replace:
+    path: /etc/mongod.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+    backup: yes # Create a backup file including the timestamp information so 
+    # you can get the original file back if you somehow clobbered it incorrectly.
+
+- name: restart mongodb
+  ansible.builtin.service:
+    name: mongod
+    state: restarted #restarting a service

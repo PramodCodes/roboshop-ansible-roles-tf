@@ -1,0 +1,157 @@
+    ¦                 • MobaXterm Personal Edition v24.2 •                 ¦
+    ¦               (SSH client, X server and network tools)               ¦
+    ¦                                                                      ¦
+    ¦ ? SSH session to centos@52.90.225.126                                ¦
+    ¦   • Direct SSH      :  ?                                             ¦
+    ¦   • SSH compression :  ?                                             ¦
+    ¦   • SSH-browser     :  ?                                             ¦
+    ¦   • X11-forwarding  :  ?  (disabled or not supported by server)      ¦
+    ¦                                                                      ¦
+    ¦ ? For more info, ctrl+click on help or visit our website.            ¦
+    +----------------------------------------------------------------------+
+
+
+¦¦¦¦¦¦+ ¦¦¦¦¦¦¦+¦¦+   ¦¦+ ¦¦¦¦¦¦+ ¦¦¦¦¦¦+ ¦¦¦¦¦¦¦+
+¦¦+--¦¦+¦¦+----+¦¦¦   ¦¦¦¦¦+---¦¦+¦¦+--¦¦+¦¦+----+
+¦¦¦  ¦¦¦¦¦¦¦¦+  ¦¦¦   ¦¦¦¦¦¦   ¦¦¦¦¦¦¦¦¦++¦¦¦¦¦¦¦+
+¦¦¦  ¦¦¦¦¦+--+  +¦¦+ ¦¦++¦¦¦   ¦¦¦¦¦+---+ +----¦¦¦
+¦¦¦¦¦¦++¦¦¦¦¦¦¦+ +¦¦¦¦++ +¦¦¦¦¦¦++¦¦¦     ¦¦¦¦¦¦¦¦
++-----+ +------+  +---+   +-----+ +-+     +------+
+
+
+¦¦¦¦¦¦¦¦+¦¦¦¦¦¦+  ¦¦¦¦¦+ ¦¦+¦¦¦+   ¦¦+¦¦+¦¦¦+   ¦¦+ ¦¦¦¦¦¦+
++--¦¦+--+¦¦+--¦¦+¦¦+--¦¦+¦¦¦¦¦¦¦+  ¦¦¦¦¦¦¦¦¦¦+  ¦¦¦¦¦+----+
+   ¦¦¦   ¦¦¦¦¦¦++¦¦¦¦¦¦¦¦¦¦¦¦¦+¦¦+ ¦¦¦¦¦¦¦¦+¦¦+ ¦¦¦¦¦¦  ¦¦¦+
+   ¦¦¦   ¦¦+--¦¦+¦¦+--¦¦¦¦¦¦¦¦¦+¦¦+¦¦¦¦¦¦¦¦¦+¦¦+¦¦¦¦¦¦   ¦¦¦
+   ¦¦¦   ¦¦¦  ¦¦¦¦¦¦  ¦¦¦¦¦¦¦¦¦ +¦¦¦¦¦¦¦¦¦¦¦ +¦¦¦¦¦+¦¦¦¦¦¦++
+   +-+   +-+  +-++-+  +-++-++-+  +---++-++-+  +---+ +-----+
+
+
+
+Disclaimer:
+
+This image is designed for only for the lab purpose
+of learning DevOps and not recommended at all to use
+in production or any company environments.
+
+This image is customized and it is having some of
+the default softwares which will help the student
+to start the practice without any issues.
+
+**Note**: This server is going to shutdown automatically
+          in case if it is idle for 60 mins to save
+          the cost in AWS.
+
+Customized Commands available in this Image:
+
+1. labauto
+2. disable-auto-shutdown / enable-auto-shutdown
+3. set-hostname
+Last login: Wed Jun  5 15:48:49 2024 from 4.213.72.33
+
+52.90.225.126 | 172.31.33.186 | t3.micro | null
+[ centos@ip-172-31-33-186 ~ ]$ ls
+
+52.90.225.126 | 172.31.33.186 | t3.micro | null
+[ centos@ip-172-31-33-186 ~ ]$ clear
+
+52.90.225.126 | 172.31.33.186 | t3.micro | null
+[ centos@ip-172-31-33-186 ~ ]$ sudo su -
+Last login: Tue Dec 10 12:12:51 UTC 2024 from 172.31.22.241 on pts/0
+
+52.90.225.126 | 172.31.33.186 | t3.micro | null
+[ root@ip-172-31-33-186 ~ ]# service status nginx
+The service command supports only basic LSB actions (start, stop, restart, try-restart, reload, force-reload, status). For other actions, please try to use systemctl.
+
+52.90.225.126 | 172.31.33.186 | t3.micro | null
+[ root@ip-172-31-33-186 ~ ]# systemctl status nginx
+? nginx.service - The nginx HTTP and reverse proxy server
+   Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; vendor preset: disabled)
+   Active: active (running) since Tue 2024-12-10 12:12:51 UTC; 47min ago
+  Process: 14060 ExecStart=/usr/sbin/nginx (code=exited, status=0/SUCCESS)
+  Process: 13993 ExecStartPre=/usr/sbin/nginx -t (code=exited, status=0/SUCCESS)
+  Process: 13979 ExecStartPre=/usr/bin/rm -f /run/nginx.pid (code=exited, status=0/SUCCESS)
+ Main PID: 14079 (nginx)
+    Tasks: 3 (limit: 4332)
+   Memory: 7.4M
+   CGroup: /system.slice/nginx.service
+           +-14079 nginx: master process /usr/sbin/nginx
+           +-14080 nginx: worker process
+           +-14081 nginx: worker process
+
+Dec 10 12:12:51 ip-172-31-33-186.ec2.internal systemd[1]: Starting The nginx HTTP and reverse proxy server...
+Dec 10 12:12:51 ip-172-31-33-186.ec2.internal nginx[13993]: nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+Dec 10 12:12:51 ip-172-31-33-186.ec2.internal nginx[13993]: nginx: configuration file /etc/nginx/nginx.conf test is successful
+Dec 10 12:12:51 ip-172-31-33-186.ec2.internal systemd[1]: Started The nginx HTTP and reverse proxy server.
+
+52.90.225.126 | 172.31.33.186 | t3.micro | null
+[ root@ip-172-31-33-186 ~ ]# systemctl restart nginx
+
+52.90.225.126 | 172.31.33.186 | t3.micro | null
+[ root@ip-172-31-33-186 ~ ]# curl -I shipping.pka.in.net
+curl: (7) Failed to connect to shipping.pka.in.net port 80: Connection refused
+
+52.90.225.126 | 172.31.33.186 | t3.micro | null
+[ root@ip-172-31-33-186 ~ ]# curl --tcp shipping.pka.in.net:22
+curl: option --tcp: is ambiguous
+curl: try 'curl --help' or 'curl --manual' for more information
+
+52.90.225.126 | 172.31.33.186 | t3.micro | null
+[ root@ip-172-31-33-186 ~ ]# telnet shipping.pka.in.net:22
+telnet: shipping.pka.in.net:22: Name or service not known
+shipping.pka.in.net:22: Unknown host
+
+52.90.225.126 | 172.31.33.186 | t3.micro | null
+[ root@ip-172-31-33-186 ~ ]# telnet shipping.pka.in.net
+Trying 172.31.45.65...
+telnet: connect to address 172.31.45.65: Connection refused
+
+52.90.225.126 | 172.31.33.186 | t3.micro | null
+[ root@ip-172-31-33-186 ~ ]# curl http://shipping.pka.in.net
+curl: (7) Failed to connect to shipping.pka.in.net port 80: Connection refused
+
+52.90.225.126 | 172.31.33.186 | t3.micro | null
+[ root@ip-172-31-33-186 ~ ]# curl https://shipping.pka.in.net:443
+curl: (7) Failed to connect to shipping.pka.in.net port 443: Connection refused
+
+52.90.225.126 | 172.31.33.186 | t3.micro | null
+[ root@ip-172-31-33-186 ~ ]# curl https://shipping.pka.in.net:8080
+curl: (7) Failed to connect to shipping.pka.in.net port 8080: Connection refused
+
+52.90.225.126 | 172.31.33.186 | t3.micro | null
+[ root@ip-172-31-33-186 ~ ]# curl http://shipping.pka.in.net:22
+SSH-2.0-OpenSSH_8.0
+Invalid SSH identification string.
+curl: (56) Recv failure: Connection reset by peer
+
+52.90.225.126 | 172.31.33.186 | t3.micro | null
+[ root@ip-172-31-33-186 ~ ]# telent shipping.pka.in.net 22
+-bash: telent: command not found
+
+52.90.225.126 | 172.31.33.186 | t3.micro | null
+[ root@ip-172-31-33-186 ~ ]# telnet shipping.pka.in.net 22
+Trying 172.31.45.65...
+Connected to shipping.pka.in.net.
+Escape character is '^]'.
+SSH-2.0-OpenSSH_8.0
+Connection closed by foreign host.
+
+52.90.225.126 | 172.31.33.186 | t3.micro | null
+[ root@ip-172-31-33-186 ~ ]# history
+    1  10/12/24 12:59:57 service status nginx
+    2  10/12/24 13:00:10 systemctl status nginx
+    3  10/12/24 13:00:21 systemctl restart nginx
+    4  10/12/24 13:01:54 curl -I shipping.pka.in.net
+    5  10/12/24 13:03:08 curl --tcp shipping.pka.in.net:22
+    6  10/12/24 13:03:42 telnet shipping.pka.in.net:22
+    7  10/12/24 13:03:46 telnet shipping.pka.in.net
+    8  10/12/24 13:05:23 curl http://shipping.pka.in.net
+    9  10/12/24 13:06:44 curl https://shipping.pka.in.net:443
+   10  10/12/24 13:07:12 curl https://shipping.pka.in.net:8080
+   11  10/12/24 13:09:32 curl http://shipping.pka.in.net:22
+   12  10/12/24 13:10:21 telent shipping.pka.in.net 22
+   13  10/12/24 13:10:33 telnet shipping.pka.in.net 22
+   14  10/12/24 13:42:42 history
+
+52.90.225.126 | 172.31.33.186 | t3.micro | null
+[ root@ip-172-31-33-186 ~ ]#

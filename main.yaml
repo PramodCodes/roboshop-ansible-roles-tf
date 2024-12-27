@@ -1,0 +1,8 @@
+- name: "Install {{component}}"
+  hosts:  "{{component}}"
+#  strategy: debug
+  vars_files:
+  - variables.yaml
+  become: yes
+  roles:
+  - "{{component}}"

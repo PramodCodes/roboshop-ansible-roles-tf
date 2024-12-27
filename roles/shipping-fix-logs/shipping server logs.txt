@@ -1,0 +1,127 @@
+FIANm;O@W!(` mysql_native_passwordConnection closed by foreign host.
+
+98.83.137.74 | 172.31.45.65 | t3.small | null
+[ root@ip-172-31-45-65 ~ ]# mysql -h mysql -u root -p < /app/db/master-data.sql
+Enter password:
+
+
+98.83.137.74 | 172.31.45.65 | t3.small | null
+[ root@ip-172-31-45-65 ~ ]#
+
+98.83.137.74 | 172.31.45.65 | t3.small | null
+[ root@ip-172-31-45-65 ~ ]# mysql -h mysql -u root -p < /app/db/master-data.sql
+Enter password:
+^C^C^C^C^C -- query aborted
+^C -- query aborted
+
+
+
+
+^[[A
+clear
+
+98.83.137.74 | 172.31.45.65 | t3.small | null
+[ root@ip-172-31-45-65 ~ ]#
+
+98.83.137.74 | 172.31.45.65 | t3.small | null
+[ root@ip-172-31-45-65 ~ ]#
+
+98.83.137.74 | 172.31.45.65 | t3.small | null
+[ root@ip-172-31-45-65 ~ ]#
+
+98.83.137.74 | 172.31.45.65 | t3.small | null
+[ root@ip-172-31-45-65 ~ ]#
+
+98.83.137.74 | 172.31.45.65 | t3.small | null
+[ root@ip-172-31-45-65 ~ ]# mysql -h mysql -u root -p < /app/db/master-data.sql
+Enter password:
+ERROR 1045 (28000): Access denied for user 'root'@'ip-172-31-45-65.ec2.internal' (using password: YES)
+
+98.83.137.74 | 172.31.45.65 | t3.small | null
+[ root@ip-172-31-45-65 ~ ]# clear
+
+98.83.137.74 | 172.31.45.65 | t3.small | null
+[ root@ip-172-31-45-65 ~ ]# sudo systemctl restart shipping
+
+98.83.137.74 | 172.31.45.65 | t3.small | null
+[ root@ip-172-31-45-65 ~ ]# journalctl -u shipping -f
+-- Logs begin at Wed 2024-06-05 15:47:25 UTC. --
+Dec 10 13:33:00 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:00.526  INFO 31085 --- [           main] c.i.r.s.ShippingServiceApplication       : No active profile set, falling back to default p                     rofiles: default
+Dec 10 13:33:03 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:03.232  INFO 31085 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DE                     FERRED mode.
+Dec 10 13:33:03 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:03.376  INFO 31085 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 124m                     s. Found 2 JPA repository interfaces.
+Dec 10 13:33:03 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:03.873  INFO 31085 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.retry.annotation.Retry                     Configuration' of type [org.springframework.retry.annotation.RetryConfiguration$$EnhancerBySpringCGLIB$$e0d3204d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for au                     to-proxying)
+Dec 10 13:33:03 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:03.976  INFO 31085 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'shippingServiceApplication' of type [com.i                     nstana.robotshop.shipping.ShippingServiceApplication$$EnhancerBySpringCGLIB$$8886c1fb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+Dec 10 13:33:04 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:04.564  INFO 31085 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+Dec 10 13:33:04 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:04.585  INFO 31085 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+Dec 10 13:33:04 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:04.586  INFO 31085 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+Dec 10 13:33:04 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:04.710  INFO 31085 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationConte                     xt
+Dec 10 13:33:04 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:04.711  INFO 31085 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization compl                     eted in 4044 ms
+Dec 10 13:33:05 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:05.086  INFO 31085 --- [           main] c.instana.robotshop.shipping.JpaConfig   : jdbc url jdbc:mysql://mysql.pka.in.net/cities?us                     eSSL=false&autoReconnect=true
+Dec 10 13:33:05 ip-172-31-45-65.ec2.internal shipping[31085]: Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered                      via the SPI and manual loading of the driver class is generally unnecessary.
+Dec 10 13:33:05 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:05.361  INFO 31085 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExe                     cutor'
+Dec 10 13:33:05 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:05.463  INFO 31085 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+Dec 10 13:33:05 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:05.468  WARN 31085 --- [           main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql                     .jdbc.Driver was not found, trying direct instantiation.
+Dec 10 13:33:05 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:05.757  INFO 31085 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+Dec 10 13:33:05 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:05.886  WARN 31085 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. T                     herefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Dec 10 13:33:05 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:05.892  INFO 31085 --- [         task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name:                      default]
+Dec 10 13:33:06 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:06.226  INFO 31085 --- [         task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.20.Fin                     al
+Dec 10 13:33:06 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:06.585  INFO 31085 --- [         task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.                     0.Final}
+Dec 10 13:33:06 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:06.966  INFO 31085 --- [         task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.                     MySQL57Dialect
+Dec 10 13:33:08 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:08.085  INFO 31085 --- [         task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [or                     g.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Dec 10 13:33:08 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:08.098  INFO 31085 --- [         task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persist                     ence unit 'default'
+Dec 10 13:33:08 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:08.189  INFO 31085 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actua                     tor'
+Dec 10 13:33:08 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:08.273  INFO 31085 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with cont                     ext path ''
+Dec 10 13:33:08 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:08.277  INFO 31085 --- [           main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Dat                     a repositories…
+Dec 10 13:33:08 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:08.971  INFO 31085 --- [           main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+Dec 10 13:33:08 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:33:08.992  INFO 31085 --- [           main] c.i.r.s.ShippingServiceApplication       : Started ShippingServiceApplication in 9.544 seco                     nds (JVM running for 10.386)
+
+
+Dec 10 13:34:11 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:34:11.877  INFO 31085 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+Dec 10 13:34:11 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:34:11.879  INFO 31085 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+Dec 10 13:34:11 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:34:11.898  INFO 31085 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 19 ms
+Dec 10 13:34:11 ip-172-31-45-65.ec2.internal shipping[31085]: 2024-12-10 13:34:11.983  INFO 31085 --- [nio-8080-exec-1] c.instana.robotshop.shipping.Controller  : all codes
+^C
+
+98.83.137.74 | 172.31.45.65 | t3.small | null
+[ root@ip-172-31-45-65 ~ ]# ^C
+
+98.83.137.74 | 172.31.45.65 | t3.small | null
+[ root@ip-172-31-45-65 ~ ]# history
+    1  10/12/24 12:37:42 systemctl daemon-reload
+    2  10/12/24 12:37:50 systemctl start shipping
+    3  10/12/24 12:38:00 systemctl enable shipping
+    4  10/12/24 12:38:08 systemctl status shipping
+    5  10/12/24 12:38:22 systemctl restart shipping
+    6  10/12/24 12:42:22 clear
+    7  10/12/24 12:42:31 journalctl -f
+    8  10/12/24 12:47:44 clear
+    9  10/12/24 12:48:03 systemctl stop shipping.service
+   10  10/12/24 12:48:14 systemctl status shipping.service
+   11  10/12/24 12:48:40 systemctl stop shipping.service
+   12  10/12/24 12:49:13 /bin/java -jar /app/shipping.jar
+   13  10/12/24 12:54:21 sudo vi /etc/hosts
+   14  10/12/24 12:55:19 sudo systemctl restart shipping
+   15  10/12/24 12:55:28 clear
+   16  10/12/24 12:55:32 journalctl -u shipping -f
+   17  10/12/24 12:55:39 clear
+   18  10/12/24 12:55:46 /bin/java -jar /app/shipping.jar
+   19  10/12/24 12:56:09 sudo vi /etc/hosts
+   20  10/12/24 12:57:09 sudo systemctl restart shipping
+   21  10/12/24 13:02:26 netstat -lnetp
+   22  10/12/24 13:02:37 netstat -lntp
+   23  10/12/24 13:16:47 sudo systemctl restart shipping
+   24  10/12/24 13:16:54 netstat -lntp
+   25  10/12/24 13:17:16 /bin/java -jar /app/shipping.jar
+   26  10/12/24 13:17:48 mysql://mysql/cities?useSSL=false&autoReconnect=true
+   27  10/12/24 13:17:55 mysql
+   28  10/12/24 13:20:05 ping mysql
+   29  10/12/24 13:25:17 clear
+   30  10/12/24 13:25:20 telnet mysql 3306
+   31  10/12/24 13:28:43 mysql -h mysql -u root -p < /app/db/master-data.sql
+   32  10/12/24 13:32:54 clear
+   33  10/12/24 13:32:58 sudo systemctl restart shipping
+   34  10/12/24 13:33:04 journalctl -u shipping -f
+   35  10/12/24 13:42:35 history
+
+98.83.137.74 | 172.31.45.65 | t3.small | null
+[ root@ip-172-31-45-65 ~ ]#

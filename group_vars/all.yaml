@@ -1,0 +1,5 @@
+# this file name is all.yaml because for all hosts same username and pwd
+# if we have seperate auth for one server such as payment 
+#i you use comonentName.yaml ex payment.yaml
+ansible_username: centos
+ansible_password: DevOps321

@@ -1,0 +1,52 @@
+- name: copy mongodb repo
+  ansible.builtin.copy:
+    src: mongodb.repo
+    dest: /etc/yum.repos.d/mongodb.repo
+
+- name: Install mongodb client
+  ansible.builtin.dnf:
+    name: mongodb-org-shell
+    state: present
+# to fix the same variable overwitten error follow below logic session 22 50:00
+# Step 1: Get the entries count for catalogue
+- name: "Get the entries count for catalogue"
+  ansible.builtin.command: mongo --host {{MONGODB_HOST}} --quiet --eval 'db = db.getSiblingDB("catalogue"); db.products.count()'
+  register: catalogue_entries_count
+  when: component == "catalogue"
+
+# Step 2: Get the entries count for user
+- name: "Get the entries count for user"
+  ansible.builtin.command: mongo --host {{MONGODB_HOST}} --quiet --eval 'db = db.getSiblingDB("users"); db.users.count()'
+  register: user_entries_count
+  when: component == "user"
+
+# Step 3: Set a default value for catalogue_entries_count if skipped
+- name: Set default catalogue_entries_count if skipped
+  ansible.builtin.set_fact:
+    catalogue_entries_count: {"stdout": None}
+  when: catalogue_entries_count is not defined
+
+# Step 4: Set a default value for user_entries_count if skipped
+- name: Set default user_entries_count if skipped
+  ansible.builtin.set_fact:
+    user_entries_count: {"stdout": None}
+  when: user_entries_count is not defined
+
+# Step 5: Debug the entries count for verification
+- name: Print catalogue entries count
+  ansible.builtin.debug:
+    msg: "Catalogue entries count: {{catalogue_entries_count}}"
+  when: catalogue_entries_count is defined
+
+- name: Print user entries count
+  ansible.builtin.debug:
+    msg: "User entries count: {{user_entries_count}}"
+  when: user_entries_count is defined
+
+# Step 6: Load catalogue data only if count is 0
+- name: Load catalogue data
+  ansible.builtin.shell: "mongo --host {{MONGODB_HOST}} < /app/schema/catalogue.js"
+  when:
+    - component == "catalogue"
+    - catalogue_entries_count is defined
+    - catalogue_entries_count.stdout == "0"
