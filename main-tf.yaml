@@ -1,5 +1,5 @@
 - name: "Install {{component}}"
-  # hosts:  "{{component}}"
+  # hosts:  "{{component}}" hosts is local host because its ansible pull configuration
   hosts: localhost
   connection: local
 #  strategy: debug
