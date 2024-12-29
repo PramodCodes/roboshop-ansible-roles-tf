@@ -7,9 +7,9 @@
     src: "{{component}}.service.j2"
     dest: "/etc/systemd/system/{{component}}.service"      
      
-- name: reload deamon and restart
-  ansible.builtin.systemd_service:
-    daemon_reload: true
+# - name: reload deamon and restart
+#   ansible.builtin.systemd_service:
+#     daemon_reload: true
     
 - name: "start and enable {{component}}"
   ansible.builtin.service:
