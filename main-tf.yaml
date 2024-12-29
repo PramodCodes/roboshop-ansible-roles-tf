@@ -4,7 +4,7 @@
   connection: local
 #  strategy: debug
   vars_files:
-  - "variables-{{env}}.yaml"
+  - "variables-dev.yaml"
   become: yes
   roles:
   - "{{component}}"
