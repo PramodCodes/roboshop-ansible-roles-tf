@@ -15,14 +15,24 @@
     state: directory # if you dont specify as directory it will be treated as file
 #      mode: '0755'
     #why ansible.builtin.file:  has mode: of 4 characters not 3 ?
+# as part of ci-cd we are commenting this and downloading artifact from nexus
+# - name: "Download {{component}} application"
+#   ansible.builtin.get_url:
+#     url: "https://roboshop-builds.s3.amazonaws.com/{{component}}.zip"
+#     dest: /tmp
 
-- name: "Download {{component}} application"
+# - name: Extract archive
+#   ansible.builtin.unarchive:
+#     src: /tmp/{{component}}.zip
+#     dest: /app
+#     remote_src: yes
+- name: Download the catalogue artifact from nexus
   ansible.builtin.get_url:
-    url: "https://roboshop-builds.s3.amazonaws.com/{{component}}.zip"
+    url: "{{NEXUS_URL}}/{{component}}/{{GROUP_ID}}/{{component}}/{{app_version}}/{{component}}-{{app_version}}.zip"
     dest: /tmp
-
-- name: Extract archive
+    
+- name: Extract {{component}} application"
   ansible.builtin.unarchive:
-    src: /tmp/{{component}}.zip
+    src: /tmp/{{component}}-{{app_version}}.zip
     dest: /app
     remote_src: yes
