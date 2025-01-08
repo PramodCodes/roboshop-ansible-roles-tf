@@ -26,6 +26,7 @@
 #     src: /tmp/{{component}}.zip
 #     dest: /app
 #     remote_src: yes
+# the following is to use already buit app comment when you only want to run it
 - name: Download the catalogue artifact from nexus
   ansible.builtin.get_url:
     url: "{{NEXUS_URL}}/{{component}}/{{GROUP_ID}}/{{component}}/{{app_version}}/{{component}}-{{app_version}}.zip"

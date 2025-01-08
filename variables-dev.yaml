@@ -9,5 +9,5 @@ CART_HOST: cart.app-dev.pka.in.net
 SHIPPING_HOST: shipping.app-dev.pka.in.net
 PAYMENT_HOST: payment.app-dev.pka.in.net
 DISPATCH_HOST: dispatch.app-dev.pka.in.net
-NEXUS_URL: http://172.31.94.99:8081/repository
+NEXUS_URL: http://nexus.pka.in.net:8081/repository
 GROUP_ID: "com/roboshop"
