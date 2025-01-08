@@ -5,8 +5,8 @@
   ansible.builtin.dnf:
     name: nodejs
     state: present
-
-- name: install dependencies
-  ansible.builtin.command:
-    chdir: /app
-    cmd: npm install
+# this is not needed as its running in pipeline now 
+# - name: install dependencies
+#   ansible.builtin.command:
+#     chdir: /app
+#     cmd: npm install
