@@ -6,7 +6,7 @@
     name: nodejs
     state: present
 # this is not needed as its running in pipeline now 
-# - name: install dependencies
-#   ansible.builtin.command:
-#     chdir: /app
-#     cmd: npm install
+- name: install dependencies
+  ansible.builtin.command:
+    chdir: /app
+    cmd: npm install
