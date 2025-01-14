@@ -29,11 +29,11 @@
 # the following is to use already buit app comment when you only want to run it
 - name: Download the catalogue artifact from nexus
   ansible.builtin.get_url:
-    url: "{{NEXUS_URL}}/{{component}}/{{GROUP_ID}}/{{component}}/{{app_version}}/{{component}}-{{app_version}}.zip"
+    url: "{{NEXUS_URL}}/{{component}}/{{GROUP_ID}}/{{component}}/{{app_version}}/{{component}}-{{app_version}}.{{packaging}}"
     dest: /tmp
     
 - name: Extract {{component}} application"
   ansible.builtin.unarchive:
-    src: /tmp/{{component}}-{{app_version}}.zip
+    src: /tmp/{{component}}-{{app_version}}.{{packaging}}
     dest: /app
     remote_src: yes

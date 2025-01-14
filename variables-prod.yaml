@@ -11,3 +11,4 @@ MYSQL_HOST: mysql-prod.pka.in.net
 ansible_python_interpreter: /usr/bin/python3
 NEXUS_URL: http://nexus.pka.in.net:8081/repository
 GROUP_ID: "com/roboshop"
+packaging: "zip"

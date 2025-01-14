@@ -12,3 +12,4 @@ DISPATCH_HOST: dispatch.app-dev.pka.in.net
 NEXUS_URL: http://nexus.pka.in.net:8081/repository
 GROUP_ID: "com/roboshop"
 # ansible_python_interpreter: /usr/bin/python3
+packaging: "zip"
